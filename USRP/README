@@ -1,1 +1,5 @@
 USRP test code, grabs a Vout stream and tries to do something useful with it.
+
+usrp sample code run:
+
+ ./rx_samples_to_file --subdev A:A --gain 5 --ant "RX2" --rate 250000 --spb 100000 --progress --setup 2

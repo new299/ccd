@@ -28,6 +28,8 @@
 #include <csignal>
 #include <complex>
 
+using namespace std;
+
 namespace po = boost::program_options;
 
 static bool stop_signal_called = false;
@@ -121,6 +123,8 @@ template<typename samp_type> void recv_to_file(
 
         if (outfile.is_open())
             outfile.write((const char*)&buff.front(), num_rx_samps*sizeof(samp_type));
+
+        cout << "size/data: " << num_rx_samps << " " << buff[0] << " " << buff[1] << endl;
 
         if (bw_summary) {
             last_update_samps += num_rx_samps;

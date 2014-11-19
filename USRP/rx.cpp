@@ -60,8 +60,6 @@ template<typename samp_type> void recv_to_file(uhd::usrp::multi_usrp::sptr usrp)
             continue;
         }
 
-        num_total_samps += num_rx_samps;
-
         cout << "data size: " << num_rx_samps << " first: " << (&buff.front())[0] << endl;
 
     }
@@ -92,7 +90,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]){
     usrp->set_clock_source("internal");
 
     //always select the subdevice first, the channel mapping affects the other settings
-    usrp->set_rx_subdev_spec(string("B:AB"));
+    usrp->set_rx_subdev_spec(string("A:A"));
 
     std::cout << "Using Device: " << usrp->get_pp_string() << std::endl;
     rate = 100000; // trying 1MSPS
